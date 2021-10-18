@@ -11,4 +11,12 @@ class Movie < ActiveRecord::Base
       return Movie.where("rating IN (?)", ratings_list)
     end
   end
+  
+  def self.sort(by)
+    if by == "t"
+      return Movie.order("title ASC")
+    else
+      return Movie.order("release_date ASC")
+    end
+  end
 end
