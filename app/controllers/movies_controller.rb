@@ -9,8 +9,9 @@ class MoviesController < ApplicationController
   def index
     @all_ratings = Movie.all_ratings
 
-    if params.length() == 2
-      params[:ratings] = session[:ratings]
+    if params[:commit].nil?
+#       params[:ratings] = session[:ratings]
+      redirect_to movies_path(:ratings => session[:ratings], :commit => "Refresh")
     end
     if params[:sort].nil?
       params[:sort] = session[:sort]
