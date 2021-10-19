@@ -19,7 +19,7 @@ class MoviesController < ApplicationController
     @ratings_to_show = params[:ratings]
     
     if @ratings_to_show.nil?
-      @ratings_to_show = []
+      @ratings_to_show = @all_ratings
     else
       @ratings_to_show = params[:ratings].keys
     end
